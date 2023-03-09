@@ -23,6 +23,7 @@ repos:
       - id: check-added-large-files
         args:
           - --maxkb=250
+        exclude: (package-lock\.json)
       - id: check-case-conflict
       - id: check-executables-have-shebangs
       - id: check-json
@@ -44,7 +45,7 @@ repos:
       - id: yamllint
         args:
           - --config-file
-          - .yamllint.config.yaml
+          - .yamllint.yaml
 
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.4.2
