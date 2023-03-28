@@ -21,10 +21,6 @@ Short project description
 ## Template introductions - remove me when initialized
 
 - README.md: update h1 and description
-- .github/workflows/npm-test.yaml: update `runs-on`
-- .github/workflows/docker-publish.yaml: update `env` and `runs-on`
-
-See Confluence reference for Github Actions.
 
 <details>
   <summary style="font-size:1.2em;">Table of Contents</summary>
