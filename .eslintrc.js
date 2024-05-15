@@ -76,7 +76,7 @@ module.exports = {
     'jsdoc/check-indentation': 'warn',
     'jsdoc/check-syntax': 'warn',
     'jsdoc/match-description': 'warn',
-    'jsdoc/newline-after-description': 'warn',
+    'jsdoc/tag-lines': ['warn', 'always', { startLines: 1, count: 0 }],
     // 'jsdoc/no-types': 'off',
     'jsdoc/require-description': 'warn',
     'jsdoc/require-description-complete-sentence': 'warn',
