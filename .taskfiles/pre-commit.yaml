@@ -8,5 +8,6 @@ tasks:
       - pre-commit install --install-hooks
   run:
     desc: Run pre-commit
+    internal: true
     cmds:
       - pre-commit run --all-files

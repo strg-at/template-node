@@ -7,3 +7,19 @@ vars:
 
 includes:
   pre-commit: .taskfiles/pre-commit.yaml
+
+tasks:
+  lint:
+    desc: lint codebase
+    dir: "{{.PROJECT_DIR}}"
+    cmds:
+      - task: pre-commit:init
+      - task: pre-commit:run
+
+  # default action shows help
+  default:
+    desc: Show a list of all tasks.
+    aliases:
+      - help
+    cmds:
+      - task --list-all
