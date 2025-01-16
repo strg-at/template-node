@@ -9,7 +9,7 @@ includes:
   pre-commit: .taskfiles/pre-commit.yaml
 
 tasks:
-  lint:
+  pre-commit:
     desc: lint codebase
     dir: "{{.PROJECT_DIR}}"
     cmds:
