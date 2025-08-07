@@ -1,14 +1,15 @@
 import typescriptParser from '@typescript-eslint/parser'
+import prettierConfig from 'eslint-config-prettier'
 import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import jsdocPlugin from 'eslint-plugin-jsdoc'
 import js from '@eslint/js'
 import globals from 'globals'
 
-// Get the recommended configs
 const typescript = typescriptPlugin.configs.recommended
 
 export default [
   js.configs.recommended,
+  prettierConfig,
   {
     ignores: ['.eslintrc.js', 'tsconfig.json', 'tsconfig.build.json', 'node_modules/**', 'dist/**', '**/generated/**'],
   },
@@ -29,11 +30,8 @@ export default [
     },
     rules: {
       ...typescript.rules,
-      semi: 'off',
-      quotes: ['error', 'single'],
 
       // TypeScript rules
-
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-inferrable-types': 'off',
       '@typescript-eslint/ban-ts-comment': 'warn',
@@ -72,16 +70,9 @@ export default [
           format: ['camelCase', 'PascalCase'],
         },
       ],
-
-      // Style rules
-      camelcase: 'off',
-      // 'no-console': 'error',
       'no-debugger': 'error',
-      'arrow-parens': 0,
       'one-var': ['error', 'never'],
       'no-var': ['error'],
-      'generator-star-spacing': 0,
-      'template-curly-spacing': 'warn',
       // JSDoc rules
       ...jsdocPlugin.configs.recommended.rules,
       'jsdoc/require-jsdoc': 'warn',
@@ -108,7 +99,7 @@ export default [
       },
     },
   },
-  // Add test-specific rules
+  // Test-specific rules
   {
     files: ['**/*.spec.ts', '**/*.test.ts'],
     languageOptions: {
