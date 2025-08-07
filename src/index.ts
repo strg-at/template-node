@@ -1,1 +1,3 @@
-console.log('Node.js Service Template - Application started successfully')
+import * as winston from 'winston';
+
+winston.info('Node.js Service Template - Application started successfully');
