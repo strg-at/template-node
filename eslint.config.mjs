@@ -1,11 +1,9 @@
-import typescriptParser from '@typescript-eslint/parser'
+import typescriptESLint from 'typescript-eslint'
+const { parser: typescriptParser, plugin: typescriptPlugin } = typescriptESLint
 import prettierConfig from 'eslint-config-prettier'
-import typescriptPlugin from '@typescript-eslint/eslint-plugin'
 import jsdocPlugin from 'eslint-plugin-jsdoc'
 import js from '@eslint/js'
 import globals from 'globals'
-
-const typescript = typescriptPlugin.configs.recommended
 
 export default [
   js.configs.recommended,
@@ -29,9 +27,6 @@ export default [
       jsdoc: jsdocPlugin,
     },
     rules: {
-      ...typescript.rules,
-
-      // TypeScript rules
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-inferrable-types': 'off',
       '@typescript-eslint/ban-ts-comment': 'warn',
