@@ -1,16 +1,35 @@
 {
   "name": "@strg-at/template-node",
   "version": "0.1.0",
+  "type": "module",
   "description": "<add some usefull description>",
   "scripts": {
-    "lint": "eslint \"src/**/*.ts\" --ignore-pattern \"src/**/*.spec.ts\"",
-    "lint:fix": "eslint \"src/**/*.ts\" --ignore-pattern \"src/**/*.spec.ts\" --fix"
+    "test": "NODE_ENV=test nyc mocha --require tsx src/**/*.spec.ts",
+    "start": "node ./dist/index.js",
+    "build": "rm -rf dist && tsc --project tsconfig.build.json && tsc-alias -p tsconfig.build.json",
+    "format": "prettier --write ./src",
+    "format:check": "prettier --check ./src",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "dev": "tsx watch src/index.ts"
   },
-  "dependencies": {},
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "eslint": "8.57.1",
-    "eslint-plugin-jsdoc": "50.4.3"
+    "@eslint/js": "9.32.0",
+    "@types/chai": "5.2.2",
+    "@types/mocha": "10.0.10",
+    "@types/node": "24.2.0",
+    "chai": "5.2.1",
+    "chai-as-promised": "8.0.1",
+    "eslint": "9.32.0",
+    "eslint-plugin-jsdoc": "52.0.4",
+    "globals": "16.3.0",
+    "mocha": "11.7.1",
+    "nyc": "17.1.0",
+    "tsc-alias": "1.8.16",
+    "tsx": "4.20.3",
+    "typescript": "5.9.2",
+    "typescript-eslint": "8.39.0",
+    "winston": "3.17.0"
   },
   "homepage": "https://github.com/strg-at/template-node#readme",
   "publishConfig": {
@@ -23,5 +42,8 @@
   "keywords": [],
   "author": "STRG.",
   "license": "SEE LICENSE IN LICENSE",
-  "maintainers": []
+  "maintainers": [],
+  "dependencies": {
+    "@strg/logging-winston": "3.0.1"
+  }
 }

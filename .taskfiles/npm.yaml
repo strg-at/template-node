@@ -1,0 +1,37 @@
+---
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: "*"
+
+  "*":
+    desc: "Run any npm command in docker (example: `task npm:run -- dev`)"
+    cmds:
+      - task: npm-docker
+        vars:
+          CMD: "{{.CMD}} {{ with .MATCH }}{{index . 0}}{{ end }} {{.CLI_ARGS}}"
+
+  npm-docker:
+    desc: Run npm command in docker container
+    vars:
+      NODE_VERSION:
+        sh: head -n 1 ./.nvmrc
+      USER_ID:
+        sh: id -u
+      GROUP_ID:
+        sh: id -g
+      HOME:
+        sh: echo $HOME
+    internal: true
+    silent: true
+    cmds:
+      - mkdir -p {{.HOME}}/.npm
+      - |
+        docker run --net=host --rm -it \
+          --user {{.USER_ID}}:{{.GROUP_ID}} \
+          -v {{.HOME}}/.npm:/.npm \
+          -v ./:/app \
+          --workdir /app node:{{.NODE_VERSION}}-alpine \
+          npm --cache /.npm {{.CMD}}
