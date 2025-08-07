@@ -1,3 +1,3 @@
-import * as winston from 'winston';
+import { logger } from '@strg/logging-winston'
 
-winston.info('Node.js Service Template - Application started successfully');
+logger.info('Node.js Service Template - Application started successfully')
