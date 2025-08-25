@@ -42,7 +42,7 @@ repos:
         args: ["--branch", "main"]
 
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
+    rev: v1.37.1
     hooks:
       - id: yamllint
         args:
@@ -56,14 +56,14 @@ repos:
       - id: remove-tabs
 
   - repo: https://github.com/sirosen/texthooks
-    rev: 0.6.7
+    rev: 0.7.1
     hooks:
       - id: fix-smartquotes
       - id: fix-ligatures
       - id: forbid-bidi-controls
 
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.42.0
+    rev: v0.45.0
     hooks:
       - id: markdownlint-fix
         args:
@@ -76,26 +76,24 @@ repos:
       - id: forbid-secrets
 
   - repo: https://github.com/rbubley/mirrors-prettier
-    rev: v3.3.3
+    rev: v3.6.2
     hooks:
       - id: prettier
         args:
           - --ignore-path
           - .prettierignore
           - --config
-          - .prettierrc.js
+          - .prettierrc
 
   - repo: https://github.com/pre-commit/mirrors-eslint
-    rev: v9.14.0
+    rev: v9.32.0
     hooks:
       - id: eslint
         args:
-          - --ignore-path
-          - .eslintignore
           - --config
-          - .eslintrc.js
+          - eslint.config.mjs
 
   - repo: https://github.com/gitleaks/gitleaks
-    rev: v8.21.2
+    rev: v8.28.0
     hooks:
       - id: gitleaks
