@@ -28,7 +28,7 @@
     "nyc": "17.1.0",
     "prettier": "3.6.2",
     "tsc-alias": "1.8.16",
-    "tsx": "4.20.3",
+    "tsx": "4.22.4",
     "typescript": "5.9.2",
     "typescript-eslint": "8.39.0",
     "winston": "3.17.0"
