@@ -24,7 +24,7 @@
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsdoc": "52.0.4",
     "globals": "16.3.0",
-    "mocha": "11.7.1",
+    "mocha": "12.0.1",
     "nyc": "18.0.0",
     "prettier": "3.6.2",
     "tsc-alias": "1.8.16",
